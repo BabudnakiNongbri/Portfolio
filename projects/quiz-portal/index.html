@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Portal</title>
+    <title>Quiz Portal | Portfolio</title>
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -16,10 +16,11 @@
 
     <div class="quiz-card">
 
+        <!-- Top Bar -->
         <div class="top-bar">
 
             <a href="../../index.html" class="back-btn">
-                ← Portfolio
+                ← Back to Portfolio
             </a>
 
             <h2>Quiz Portal</h2>
@@ -30,6 +31,7 @@
 
         </div>
 
+        <!-- Progress -->
         <div class="progress-area">
 
             <div class="progress-text">
@@ -40,21 +42,26 @@
             </div>
 
             <div class="progress-bar">
-
                 <div class="progress-fill" id="progressFill"></div>
-
             </div>
 
         </div>
 
+        <!-- Start Screen -->
         <div id="startScreen">
 
             <h1>Test Your Knowledge</h1>
 
             <p>
-                40 Randomized Questions
+                Challenge yourself with 40 randomized questions.
+                <br><br>
+                ✔ Random Questions
                 <br>
-                Clean UI • Instant Score • Random Every Attempt
+                ✔ Random Options
+                <br>
+                ✔ Timer
+                <br>
+                ✔ Instant Score
             </p>
 
             <button id="startBtn">
@@ -63,6 +70,7 @@
 
         </div>
 
+        <!-- Quiz Screen -->
         <div id="quizScreen" class="hide">
 
             <h3 id="question"></h3>
@@ -83,11 +91,12 @@
 
         </div>
 
+        <!-- Result Screen -->
         <div id="resultScreen" class="hide">
 
             <h1>Quiz Completed 🎉</h1>
 
-            <h2 id="score"></h2>
+            <div id="score"></div>
 
             <button onclick="location.reload()">
                 Restart Quiz
@@ -99,6 +108,7 @@
 
 </div>
 
+<!-- JavaScript -->
 <script src="js/questions.js"></script>
 <script src="js/script.js"></script>
 

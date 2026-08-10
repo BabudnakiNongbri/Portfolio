@@ -1,0 +1,496 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Poppins", sans-serif;
+}
+
+
+body {
+    min-height: 100vh;
+
+    background: #eef3fb;
+
+    color: #172033;
+}
+
+
+/* =====================================
+   PAGE
+===================================== */
+
+.page {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+/* =====================================
+   CALCULATOR
+===================================== */
+
+.calculator {
+    width: 900px;
+
+    max-width: 100%;
+
+    background: #ffffff;
+
+    border-radius: 24px;
+
+    padding: 22px;
+
+    box-shadow:
+        0 20px 55px rgba(15, 23, 42, 0.14);
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 16px;
+}
+
+
+.back-link {
+    text-decoration: none;
+
+    color: #2563eb;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+
+.back-link:hover {
+    color: #1d4ed8;
+}
+
+
+/* =====================================
+   DEG / RAD
+===================================== */
+
+.angle-mode {
+    display: flex;
+
+    padding: 4px;
+
+    background: #e2e8f0;
+
+    border-radius: 11px;
+}
+
+
+.mode {
+    border: none;
+
+    background: transparent;
+
+    color: #64748b;
+
+    padding: 8px 15px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.mode.active {
+    background: #2563eb;
+
+    color: white;
+}
+
+
+/* =====================================
+   DISPLAY
+===================================== */
+
+.display-box {
+    height: 115px;
+
+    background: #0f172a;
+
+    border-radius: 18px;
+
+    padding: 15px 22px;
+
+    margin-bottom: 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    overflow: hidden;
+}
+
+
+.expression-display {
+    min-height: 24px;
+
+    color: #94a3b8;
+
+    text-align: right;
+
+    font-size: 15px;
+
+    white-space: nowrap;
+
+    overflow-x: auto;
+}
+
+
+.main-display {
+    color: white;
+
+    font-size: 42px;
+
+    font-weight: 600;
+
+    text-align: right;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+
+    overflow-x: auto;
+}
+
+
+/* =====================================
+   KEYPAD
+===================================== */
+
+.keys {
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    gap: 7px;
+}
+
+
+.keys button {
+    height: 52px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #f1f5f9;
+
+    color: #172033;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s,
+        transform 0.15s;
+}
+
+
+.keys button:hover {
+    background: #dbeafe;
+
+    transform: translateY(-1px);
+}
+
+
+.keys button:active {
+    transform: scale(0.96);
+}
+
+
+/* =====================================
+   SCIENTIFIC BUTTONS
+===================================== */
+
+.scientific {
+    background: #eef2ff !important;
+
+    color: #4f46e5 !important;
+}
+
+
+/* =====================================
+   OPERATORS
+===================================== */
+
+.operator {
+    background: #dbeafe !important;
+
+    color: #2563eb !important;
+}
+
+
+/* =====================================
+   CLEAR / DELETE
+===================================== */
+
+.danger {
+    background: #fee2e2 !important;
+
+    color: #dc2626 !important;
+}
+
+
+/* =====================================
+   EQUALS
+===================================== */
+
+.wide-button {
+    grid-column: span 2;
+
+    background: #2563eb !important;
+
+    color: white !important;
+
+    font-size: 20px !important;
+}
+
+
+.wide-button:hover {
+    background: #1d4ed8 !important;
+}
+
+
+/* =====================================
+   ZERO
+===================================== */
+
+.zero {
+    grid-column: span 2;
+}
+
+
+/* =====================================
+   HISTORY
+===================================== */
+
+.history {
+    margin-top: 18px;
+
+    border-top: 1px solid #e2e8f0;
+
+    padding-top: 12px;
+}
+
+
+.history-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.history-header h3 {
+    font-size: 16px;
+}
+
+
+#clearHistory {
+    border: none;
+
+    background: transparent;
+
+    color: #dc2626;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.history-list {
+    max-height: 90px;
+
+    overflow-y: auto;
+
+    margin-top: 6px;
+}
+
+
+.history-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 6px 0;
+
+    border-bottom: 1px solid #f1f5f9;
+
+    font-size: 13px;
+}
+
+
+.history-expression {
+    color: #64748b;
+}
+
+
+.history-result {
+    color: #2563eb;
+
+    font-weight: 600;
+}
+
+
+/* =====================================
+   SHORT SCREEN
+===================================== */
+
+@media (max-height: 800px) {
+
+    .page {
+        padding: 10px;
+    }
+
+
+    .calculator {
+        padding: 16px;
+    }
+
+
+    .header {
+        margin-bottom: 10px;
+    }
+
+
+    .display-box {
+        height: 85px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .main-display {
+        font-size: 32px;
+    }
+
+
+    .keys {
+        gap: 5px;
+    }
+
+
+    .keys button {
+        height: 42px;
+
+        font-size: 14px;
+    }
+
+
+    .history {
+        margin-top: 10px;
+
+        padding-top: 7px;
+    }
+
+
+    .history-list {
+        max-height: 50px;
+    }
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 650px) {
+
+    .page {
+        padding: 8px;
+    }
+
+
+    .calculator {
+        padding: 12px;
+
+        border-radius: 18px;
+    }
+
+
+    .header {
+        margin-bottom: 9px;
+    }
+
+
+    .back-link {
+        font-size: 13px;
+    }
+
+
+    .mode {
+        padding: 6px 9px;
+
+        font-size: 12px;
+    }
+
+
+    .display-box {
+        height: 75px;
+
+        padding: 10px 14px;
+    }
+
+
+    .main-display {
+        font-size: 27px;
+    }
+
+
+    .expression-display {
+        font-size: 11px;
+    }
+
+
+    .keys {
+        gap: 4px;
+    }
+
+
+    .keys button {
+        height: 43px;
+
+        border-radius: 8px;
+
+        font-size: 13px;
+    }
+
+}

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Scientific Calculator | Portfolio</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <div class="calculator">
+
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <header class="header">
+
+            <a
+                href="../../index.html"
+                class="back-link"
+            >
+                ← Back to Portfolio
+            </a>
+
+
+            <div class="angle-mode">
+
+                <button
+                    type="button"
+                    id="degBtn"
+                    class="mode active"
+                >
+                    DEG
+                </button>
+
+                <button
+                    type="button"
+                    id="radBtn"
+                    class="mode"
+                >
+                    RAD
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================
+             DISPLAY
+        ========================== -->
+
+        <section class="display-box">
+
+            <div
+                id="expressionDisplay"
+                class="expression-display"
+            ></div>
+
+
+            <div
+                id="mainDisplay"
+                class="main-display"
+            >
+                0
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             BUTTONS
+        ========================== -->
+
+        <section class="keys">
+
+
+            <!-- Scientific functions -->
+
+            <button
+                type="button"
+                class="scientific"
+                data-action="sin"
+            >
+                sin
+            </button>
+
+
+            <button
+                type="button"
+                class="scientific"
+                data-action="cos"
+            >
+                cos
+            </button>
+
+
+            <button
+                type="button"
+                class="scientific"
+                data-action="tan"
+            >
+                tan
+            </button>
+
+
+            <button
+                type="button"
+                class="scientific"
+                data-action="log"
+            >
+                log
+            </button>
+
+
+            <button
+                type="button"
+                class="scientific"
+                data-action="ln"
+            >
+                ln
+            </button>
+
+
+            <button
+                type="button"
+                class="scientific"
+                data-action="sqrt"
+            >
+                √
+            </button>
+
+
+
+            <!-- Second scientific row -->
+
+            <button
+                type="button"
+                class="scientific"
+                data-action="square"
+            >
+                x²
+            </button>
+
+
+            <button
+                type="button"
+                class="scientific"
+                data-action="power"
+            >
+                xʸ
+            </button>
+
+
+            <button
+                type="button"
+                class="scientific"
+                data-action="factorial"
+            >
+                x!
+            </button>
+
+
+            <button
+                type="button"
+                class="scientific"
+                data-value="PI"
+            >
+                π
+            </button>
+
+
+            <button
+                type="button"
+                class="scientific"
+                data-value="E"
+            >
+                e
+            </button>
+
+
+            <button
+                type="button"
+                class="scientific"
+                data-action="ans"
+            >
+                Ans
+            </button>
+
+
+
+            <!-- Controls -->
+
+            <button
+                type="button"
+                class="danger"
+                data-action="clear"
+            >
+                AC
+            </button>
+
+
+            <button
+                type="button"
+                class="danger"
+                data-action="delete"
+            >
+                DEL
+            </button>
+
+
+            <button
+                type="button"
+                class="operator"
+                data-value="("
+            >
+                (
+            </button>
+
+
+            <button
+                type="button"
+                class="operator"
+                data-value=")"
+            >
+                )
+            </button>
+
+
+            <button
+                type="button"
+                class="operator"
+                data-value="%"
+            >
+                %
+            </button>
+
+
+            <button
+                type="button"
+                class="operator"
+                data-value="/"
+            >
+                ÷
+            </button>
+
+
+
+            <!-- 7 8 9 -->
+
+            <button
+                type="button"
+                data-value="7"
+            >
+                7
+            </button>
+
+
+            <button
+                type="button"
+                data-value="8"
+            >
+                8
+            </button>
+
+
+            <button
+                type="button"
+                data-value="9"
+            >
+                9
+            </button>
+
+
+            <button
+                type="button"
+                class="operator"
+                data-value="*"
+            >
+                ×
+            </button>
+
+
+            <button
+                type="button"
+                class="operator"
+                data-value="-"
+            >
+                −
+            </button>
+
+
+            <button
+                type="button"
+                class="operator"
+                data-value="+"
+            >
+                +
+            </button>
+
+
+
+            <!-- 4 5 6 -->
+
+            <button
+                type="button"
+                data-value="4"
+            >
+                4
+            </button>
+
+
+            <button
+                type="button"
+                data-value="5"
+            >
+                5
+            </button>
+
+
+            <button
+                type="button"
+                data-value="6"
+            >
+                6
+            </button>
+
+
+            <button
+                type="button"
+                class="operator"
+                data-value="."
+            >
+                .
+            </button>
+
+
+            <button
+                type="button"
+                class="wide-button"
+                data-action="calculate"
+            >
+                =
+            </button>
+
+
+
+            <!-- 1 2 3 -->
+
+            <button
+                type="button"
+                data-value="1"
+            >
+                1
+            </button>
+
+
+            <button
+                type="button"
+                data-value="2"
+            >
+                2
+            </button>
+
+
+            <button
+                type="button"
+                data-value="3"
+            >
+                3
+            </button>
+
+
+
+            <!-- 0 -->
+
+            <button
+                type="button"
+                class="zero"
+                data-value="0"
+            >
+                0
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             HISTORY
+        ========================== -->
+
+        <section class="history">
+
+            <div class="history-header">
+
+                <h3>
+                    Calculation History
+                </h3>
+
+                <button
+                    type="button"
+                    id="clearHistory"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <div
+                id="historyList"
+                class="history-list"
+            ></div>
+
+        </section>
+
+
+    </div>
+
+
+</div>
+
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

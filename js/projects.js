@@ -10,8 +10,30 @@ const projects = [
         github: "https://github.com/BabudnakiNongbriB/football-store",
 
         demo: "projects/football-store/index.html"
-    }
+    },
 
+    {
+        title: "Quiz Portal",
+
+        description: "An interactive quiz application with 40 questions that randomly selects 20 questions for every attempt, with timer, scoring and high-score tracking.",
+
+        image: "images/quiz-portal.png",
+
+        github: "#",
+
+        demo: "projects/quiz-portal/index.html"
+    },
+    {
+    title: "Scientific Calculator",
+
+    description: "A responsive scientific calculator with advanced mathematical functions, DEG/RAD modes, calculation history, keyboard support and real-time expression evaluation.",
+
+    image: "images/scientific-calculator.png",
+
+    github: "#",
+
+    demo: "projects/scientific-calculator/index.html"
+}
 ];
 
 // Future projects will be added here.
