@@ -33,7 +33,30 @@ const projects = [
     github: "#",
 
     demo: "projects/scientific-calculator/index.html"
-}
+},
+{
+    title: "Employee Management System",
+
+    description: "A web-based employee management system developed using HTML, PHP and MySQL.",
+
+    image: "images/employee-management.png",
+
+    github: "#",
+
+    demo: "http://localhost/employee-management/"
+},
+ {
+        title: "Department Portal",
+
+        description: "A dynamic department website with Home, About Us, Registration and Login functionality using HTML, CSS, JavaScript, PHP and MySQL.",
+
+        image: "images/department-portal.png",
+
+        github: "#",
+
+        demo: "http://localhost/department-portal/"
+    }
+
 ];
 
 // Future projects will be added here.

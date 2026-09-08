@@ -1,6 +1,6 @@
 const products = [
     {
-        name: "Real Madrid Home Jersey",
+        name: "RMA Jersey",
         price: 4999,
         image: "images/jerseys/realmadrid.jpg"
     },
@@ -15,17 +15,17 @@ const products = [
         image: "images/jerseys/juventus.jpg"
     },
     {
-        name: "Manchester United Home Jersey",
+        name: "Manchester Jersey",
         price: 4899,
         image: "images/jerseys/manunited.jpg"
     },
     {
-        name: "Bayern Munich Home Jersey",
+        name: "Bayern Munich Jersey",
         price: 4799,
         image: "images/jerseys/bayern.jpg"
     },
     {
-        name: "AC Milan Home Jersey",
+        name: "AC Milan Jersey",
         price: 4699,
         image: "images/jerseys/acmilan.jpg"
     }

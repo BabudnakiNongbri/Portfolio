@@ -1,448 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Scientific Calculator | Portfolio</title>
+    <title>Scientific Calculator</title>
 
     <link rel="stylesheet" href="css/style.css">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
 </head>
-
 
 <body>
 
+<div class="app">
 
-<div class="page">
+    <!-- Header -->
+   <header class="topbar">
 
+    <div class="brand">
+        <div class="brand-icon">∑</div>
 
-    <div class="calculator">
+        <div>
+            <h1>Scientific Calculator</h1>
+            <p>Advanced mathematical calculator</p>
+        </div>
+    </div>
 
+    <div class="header-actions">
 
-        <!-- =========================
-             HEADER
-        ========================== -->
+        <a href="../../index.html" class="back-btn">
+            ← Back to Portfolio
+        </a>
 
-        <header class="header">
-
-            <a
-                href="../../index.html"
-                class="back-link"
-            >
-                ← Back to Portfolio
-            </a>
-
-
-            <div class="angle-mode">
-
-                <button
-                    type="button"
-                    id="degBtn"
-                    class="mode active"
-                >
-                    DEG
-                </button>
-
-                <button
-                    type="button"
-                    id="radBtn"
-                    class="mode"
-                >
-                    RAD
-                </button>
-
-            </div>
-
-        </header>
-
-
-
-        <!-- =========================
-             DISPLAY
-        ========================== -->
-
-        <section class="display-box">
-
-            <div
-                id="expressionDisplay"
-                class="expression-display"
-            ></div>
-
-
-            <div
-                id="mainDisplay"
-                class="main-display"
-            >
-                0
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             BUTTONS
-        ========================== -->
-
-        <section class="keys">
-
-
-            <!-- Scientific functions -->
-
-            <button
-                type="button"
-                class="scientific"
-                data-action="sin"
-            >
-                sin
-            </button>
-
-
-            <button
-                type="button"
-                class="scientific"
-                data-action="cos"
-            >
-                cos
-            </button>
-
-
-            <button
-                type="button"
-                class="scientific"
-                data-action="tan"
-            >
-                tan
-            </button>
-
-
-            <button
-                type="button"
-                class="scientific"
-                data-action="log"
-            >
-                log
-            </button>
-
-
-            <button
-                type="button"
-                class="scientific"
-                data-action="ln"
-            >
-                ln
-            </button>
-
-
-            <button
-                type="button"
-                class="scientific"
-                data-action="sqrt"
-            >
-                √
-            </button>
-
-
-
-            <!-- Second scientific row -->
-
-            <button
-                type="button"
-                class="scientific"
-                data-action="square"
-            >
-                x²
-            </button>
-
-
-            <button
-                type="button"
-                class="scientific"
-                data-action="power"
-            >
-                xʸ
-            </button>
-
-
-            <button
-                type="button"
-                class="scientific"
-                data-action="factorial"
-            >
-                x!
-            </button>
-
-
-            <button
-                type="button"
-                class="scientific"
-                data-value="PI"
-            >
-                π
-            </button>
-
-
-            <button
-                type="button"
-                class="scientific"
-                data-value="E"
-            >
-                e
-            </button>
-
-
-            <button
-                type="button"
-                class="scientific"
-                data-action="ans"
-            >
-                Ans
-            </button>
-
-
-
-            <!-- Controls -->
-
-            <button
-                type="button"
-                class="danger"
-                data-action="clear"
-            >
-                AC
-            </button>
-
-
-            <button
-                type="button"
-                class="danger"
-                data-action="delete"
-            >
-                DEL
-            </button>
-
-
-            <button
-                type="button"
-                class="operator"
-                data-value="("
-            >
-                (
-            </button>
-
-
-            <button
-                type="button"
-                class="operator"
-                data-value=")"
-            >
-                )
-            </button>
-
-
-            <button
-                type="button"
-                class="operator"
-                data-value="%"
-            >
-                %
-            </button>
-
-
-            <button
-                type="button"
-                class="operator"
-                data-value="/"
-            >
-                ÷
-            </button>
-
-
-
-            <!-- 7 8 9 -->
-
-            <button
-                type="button"
-                data-value="7"
-            >
-                7
-            </button>
-
-
-            <button
-                type="button"
-                data-value="8"
-            >
-                8
-            </button>
-
-
-            <button
-                type="button"
-                data-value="9"
-            >
-                9
-            </button>
-
-
-            <button
-                type="button"
-                class="operator"
-                data-value="*"
-            >
-                ×
-            </button>
-
-
-            <button
-                type="button"
-                class="operator"
-                data-value="-"
-            >
-                −
-            </button>
-
-
-            <button
-                type="button"
-                class="operator"
-                data-value="+"
-            >
-                +
-            </button>
-
-
-
-            <!-- 4 5 6 -->
-
-            <button
-                type="button"
-                data-value="4"
-            >
-                4
-            </button>
-
-
-            <button
-                type="button"
-                data-value="5"
-            >
-                5
-            </button>
-
-
-            <button
-                type="button"
-                data-value="6"
-            >
-                6
-            </button>
-
-
-            <button
-                type="button"
-                class="operator"
-                data-value="."
-            >
-                .
-            </button>
-
-
-            <button
-                type="button"
-                class="wide-button"
-                data-action="calculate"
-            >
-                =
-            </button>
-
-
-
-            <!-- 1 2 3 -->
-
-            <button
-                type="button"
-                data-value="1"
-            >
-                1
-            </button>
-
-
-            <button
-                type="button"
-                data-value="2"
-            >
-                2
-            </button>
-
-
-            <button
-                type="button"
-                data-value="3"
-            >
-                3
-            </button>
-
-
-
-            <!-- 0 -->
-
-            <button
-                type="button"
-                class="zero"
-                data-value="0"
-            >
-                0
-            </button>
-
-
-        </section>
-
-
-
-        <!-- =========================
-             HISTORY
-        ========================== -->
-
-        <section class="history">
-
-            <div class="history-header">
-
-                <h3>
-                    Calculation History
-                </h3>
-
-                <button
-                    type="button"
-                    id="clearHistory"
-                >
-                    Clear
-                </button>
-
-            </div>
-
-
-            <div
-                id="historyList"
-                class="history-list"
-            ></div>
-
-        </section>
-
+        <button class="history-btn" id="historyBtn">
+            <span>↺</span>
+            History
+        </button>
 
     </div>
 
+</header>
+
+
+    <!-- Main Calculator -->
+    <main class="calculator-layout">
+
+        <section class="calculator">
+
+            <!-- Display -->
+            <div class="display">
+
+                <div class="display-top">
+
+                    <span class="mode-label" id="modeLabel">
+                        DEG
+                    </span>
+
+                    <span class="memory-label" id="memoryLabel">
+                        Ans: 0
+                    </span>
+
+                </div>
+
+                <div class="expression" id="expression">
+                    0
+                </div>
+
+                <div class="result" id="result">
+                    0
+                </div>
+
+            </div>
+
+
+            <!-- Calculator controls -->
+            <div class="controls">
+
+                <button class="control-btn active" id="degBtn">
+                    DEG
+                </button>
+
+                <button class="control-btn" id="radBtn">
+                    RAD
+                </button>
+
+                <button class="control-btn" data-action="open">
+                    (
+                </button>
+
+                <button class="control-btn" data-action="close">
+                    )
+                </button>
+
+                <button class="control-btn danger" data-action="clear">
+                    AC
+                </button>
+
+                <button class="control-btn warning" data-action="delete">
+                    DEL
+                </button>
+
+            </div>
+
+
+            <!-- Scientific buttons -->
+            <div class="scientific-grid">
+
+                <button class="scientific" data-function="sin">
+                    sin
+                </button>
+
+                <button class="scientific" data-function="cos">
+                    cos
+                </button>
+
+                <button class="scientific" data-function="tan">
+                    tan
+                </button>
+
+                <button class="scientific" data-function="asin">
+                    sin⁻¹
+                </button>
+
+                <button class="scientific" data-function="acos">
+                    cos⁻¹
+                </button>
+
+                <button class="scientific" data-function="atan">
+                    tan⁻¹
+                </button>
+
+                <button class="scientific" data-function="log">
+                    log
+                </button>
+
+                <button class="scientific" data-function="ln">
+                    ln
+                </button>
+
+                <button class="scientific" data-function="sqrt">
+                    √
+                </button>
+
+                <button class="scientific" data-function="cbrt">
+                    ∛
+                </button>
+
+                <button class="scientific" data-function="square">
+                    x²
+                </button>
+
+                <button class="scientific" data-function="cube">
+                    x³
+                </button>
+
+                <button class="scientific" data-function="factorial">
+                    x!
+                </button>
+
+                <button class="scientific" data-function="reciprocal">
+                    1/x
+                </button>
+
+                <button class="scientific" data-function="power">
+                    xʸ
+                </button>
+
+                <button class="scientific" data-function="percent">
+                    %
+                </button>
+
+                <button class="scientific" data-function="sinh">
+                    sinh
+                </button>
+
+                <button class="scientific" data-function="cosh">
+                    cosh
+                </button>
+
+                <button class="scientific" data-function="tanh">
+                    tanh
+                </button>
+
+                <button class="scientific" data-value="Math.PI">
+                    π
+                </button>
+
+                <button class="scientific" data-value="Math.E">
+                    e
+                </button>
+
+                <button class="scientific" data-action="ans">
+                    Ans
+                </button>
+
+            </div>
+
+
+            <!-- Number pad -->
+            <div class="number-grid">
+
+                <button data-value="7">7</button>
+                <button data-value="8">8</button>
+                <button data-value="9">9</button>
+                <button class="operator" data-value="/">÷</button>
+
+                <button data-value="4">4</button>
+                <button data-value="5">5</button>
+                <button data-value="6">6</button>
+                <button class="operator" data-value="*">×</button>
+
+                <button data-value="1">1</button>
+                <button data-value="2">2</button>
+                <button data-value="3">3</button>
+                <button class="operator" data-value="-">−</button>
+
+                <button data-value="0">0</button>
+                <button data-value=".">.</button>
+                <button class="operator" data-value="+">+</button>
+                <button class="equals" data-action="calculate">=</button>
+
+            </div>
+
+        </section>
+
+
+        <!-- History Panel -->
+        <aside class="history-panel" id="historyPanel">
+
+            <div class="history-header">
+
+                <div>
+                    <h2>Calculation History</h2>
+                    <p>Your recent calculations</p>
+                </div>
+
+                <button class="close-history" id="closeHistory">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="history-list" id="historyList">
+
+                <div class="empty-history">
+                    <div class="empty-icon">∑</div>
+                    <h3>No calculations yet</h3>
+                    <p>Your calculations will appear here.</p>
+                </div>
+
+            </div>
+
+
+            <button class="clear-history" id="clearHistory">
+                Clear History
+            </button>
+
+        </aside>
+
+    </main>
+
+
+    <footer>
+        <p>
+            Scientific Calculator
+            <span>•</span>
+            HTML
+            <span>•</span>
+            CSS
+            <span>•</span>
+            JavaScript
+        </p>
+
+        <p class="keyboard-hint">
+            Keyboard supported
+        </p>
+    </footer>
 
 </div>
 
@@ -450,5 +283,4 @@
 <script src="js/script.js"></script>
 
 </body>
-
 </html>
