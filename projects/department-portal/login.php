@@ -6,22 +6,24 @@ include "config/db.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $email = $_POST["email"];
+    $email = trim($_POST["email"]);
     $password = $_POST["password"];
 
-    $sql = "SELECT * FROM users
-            WHERE email = '$email'";
+    $stmt = $conn->prepare("
+        SELECT *
+        FROM users
+        WHERE email = :email
+    ");
 
-    $result = mysqli_query($conn, $sql);
+    $stmt->execute([
+        ":email" => $email
+    ]);
 
-    if (mysqli_num_rows($result) == 1) {
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $user = mysqli_fetch_assoc($result);
+    if ($user) {
 
-        if (password_verify(
-            $password,
-            $user["password"]
-        )) {
+        if (password_verify($password, $user["password"])) {
 
             $_SESSION["user"] = $user["name"];
 
@@ -34,16 +36,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         } else {
 
-            echo "Invalid password.";
+            echo "
+            <script>
+                alert('Invalid password!');
+                window.location.href = 'login.html';
+            </script>
+            ";
 
         }
 
     } else {
 
-        echo "User not found.";
+        echo "
+        <script>
+            alert('User not found!');
+            window.location.href = 'login.html';
+        </script>
+        ";
 
     }
-
 }
 
 ?>

@@ -4,21 +4,29 @@ include "config/db.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $name = $_POST["name"];
-    $email = $_POST["email"];
+    $name = trim($_POST["name"]);
+    $email = trim($_POST["email"]);
     $password = $_POST["password"];
 
-    $password = password_hash(
+    $hashedPassword = password_hash(
         $password,
         PASSWORD_DEFAULT
     );
 
-    $sql = "INSERT INTO users
+    try {
+
+        $stmt = $conn->prepare("
+            INSERT INTO users
             (name, email, password)
             VALUES
-            ('$name', '$email', '$password')";
+            (:name, :email, :password)
+        ");
 
-    if (mysqli_query($conn, $sql)) {
+        $stmt->execute([
+            ":name" => $name,
+            ":email" => $email,
+            ":password" => $hashedPassword
+        ]);
 
         echo "
         <script>
@@ -27,13 +35,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </script>
         ";
 
-    } else {
+    } catch (PDOException $e) {
 
-        echo "Registration failed: "
-             . mysqli_error($conn);
+        if ($e->getCode() == 23000) {
 
+            echo "
+            <script>
+                alert('Email already registered!');
+                window.location.href = 'register.html';
+            </script>
+            ";
+
+        } else {
+
+            echo "Registration failed.";
+
+        }
     }
-
 }
 
 ?>

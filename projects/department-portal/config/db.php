@@ -1,21 +1,36 @@
 <?php
 
-$host = getenv("DB_HOST");
-$user = getenv("DB_USER");
-$password = getenv("DB_PASSWORD");
-$database = getenv("DB_NAME");
-$port = getenv("DB_PORT") ?: 3306;
+$dbFolder = __DIR__ . "/../database";
 
-$conn = mysqli_connect(
-    $host,
-    $user,
-    $password,
-    $database,
-    $port
-);
+if (!is_dir($dbFolder)) {
+    mkdir($dbFolder, 0777, true);
+}
 
-if (!$conn) {
-    die("Database connection failed.");
+$dbPath = $dbFolder . "/department.db";
+
+try {
+
+    $conn = new PDO("sqlite:" . $dbPath);
+
+    $conn->setAttribute(
+        PDO::ATTR_ERRMODE,
+        PDO::ERRMODE_EXCEPTION
+    );
+
+    $conn->exec("
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            email TEXT NOT NULL UNIQUE,
+            password TEXT NOT NULL,
+            registered_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    ");
+
+} catch (PDOException $e) {
+
+    die("Database connection failed: " . $e->getMessage());
+
 }
 
 ?>
