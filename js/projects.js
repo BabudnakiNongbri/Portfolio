@@ -54,9 +54,20 @@ const projects = [
 
         github: "#",
 
-        demo: "http://localhost/department-portal/"
-    }
+        demo: "http://localhost:8000", target:"blank"
+    },
+{
+    title: "Nexora – Company Portal",
 
+    description: "A dynamic company portal with separate employee and admin authentication, registration, role-based access and database management using HTML, CSS, JavaScript, PHP and MySQL.",
+
+    image: "images/nexora.png",
+
+    github: "#",
+
+    demo: "http://localhost:8001",
+    target: "blank"
+},
 ];
 
 // Future projects will be added here.

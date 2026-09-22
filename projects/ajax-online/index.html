@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>User Directory | AJAX & JSON</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #f6f7fb;
+    color: #172033;
+}
+
+
+/* NAVBAR */
+
+nav {
+    height: 70px;
+    background: white;
+    border-bottom: 1px solid #e8eaf0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 11px;
+
+    background: #4f46e5;
+    color: white;
+}
+
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 75px 20px 55px;
+
+    background:
+        radial-gradient(circle at 15% 30%, #e0e7ff, transparent 25%),
+        radial-gradient(circle at 85% 30%, #ede9fe, transparent 25%);
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 7px 14px;
+    margin-bottom: 18px;
+
+    border-radius: 20px;
+
+    background: #eef2ff;
+    color: #4f46e5;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 18px;
+}
+
+.gradient {
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: auto;
+
+    color: #667085;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.load-btn {
+    margin-top: 25px;
+
+    padding: 13px 25px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #4f46e5;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.load-btn:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+}
+
+.status {
+    margin-top: 12px;
+    color: #16a34a;
+    font-size: 13px;
+}
+
+
+/* MAIN */
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+
+    margin: 40px auto 70px;
+}
+
+
+/* FILTERS */
+
+.filters {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+
+    gap: 12px;
+
+    background: white;
+
+    padding: 15px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.05);
+
+    margin-bottom: 25px;
+}
+
+input,
+select {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #e2e5eb;
+    border-radius: 9px;
+
+    outline: none;
+
+    font-family: inherit;
+}
+
+input:focus,
+select:focus {
+    border-color: #6366f1;
+}
+
+
+/* CARDS */
+
+.grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.card {
+    background: white;
+
+    padding: 22px;
+
+    border: 1px solid #e9ebf0;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 18px rgba(0,0,0,.04);
+
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.09);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-bottom: 18px;
+}
+
+.profile img {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+}
+
+.name {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.city {
+    margin-top: 4px;
+
+    color: #4f46e5;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.info {
+    border-top: 1px solid #eef0f4;
+
+    padding-top: 13px;
+}
+
+.info p {
+    margin: 9px 0;
+
+    color: #667085;
+
+    font-size: 13px;
+
+    word-break: break-word;
+}
+
+.info b {
+    color: #344054;
+}
+
+.message {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 50px;
+
+    color: #667085;
+}
+
+
+/* LOADING */
+
+.loader {
+    width: 35px;
+    height: 35px;
+
+    border: 4px solid #e0e7ff;
+    border-top-color: #4f46e5;
+
+    border-radius: 50%;
+
+    margin: auto auto 15px;
+
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    border-top: 1px solid #e5e7eb;
+
+    color: #667085;
+
+    font-size: 13px;
+
+    background: white;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width: 850px) {
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filters {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .filters input {
+        grid-column: 1 / -1;
+    }
+}
+
+@media(max-width: 550px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        grid-template-columns: 1fr;
+    }
+
+    .filters input {
+        grid-column: auto;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+<div class="logo">
+
+<div class="logo-icon">
+    👥
+</div>
+
+User Directory
+
+</div>
+
+</nav>
+
+
+<section class="hero">
+
+<div class="badge">
+    ⚡ AJAX + JSON • LIVE DATA
+</div>
+
+<h1>
+    Discover
+    <span class="gradient">People</span>
+</h1>
+
+<p>
+    A modern directory that fetches
+    real-time data from an online server
+    using AJAX and JSON.
+</p>
+
+<button class="load-btn" onclick="loadUsers()">
+    Load Data →
+</button>
+
+<div class="status" id="status"></div>
+
+</section>
+
+
+<div class="container">
+
+
+<div class="filters">
+
+<input
+    type="text"
+    id="search"
+    placeholder="🔍 Search by name, email or city..."
+    oninput="displayUsers()"
+>
+
+<select id="city" onchange="displayUsers()">
+
+<option value="all">
+    All Cities
+</option>
+
+</select>
+
+<select id="sort" onchange="displayUsers()">
+
+<option value="az">
+    Name A-Z
+</option>
+
+<option value="za">
+    Name Z-A
+</option>
+
+<option value="city">
+    City
+</option>
+
+</select>
+
+</div>
+
+
+<div class="grid" id="users">
+
+<div class="message">
+
+Click <b>Load Data</b> to fetch information
+from the online server.
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+AJAX • JSON • JavaScript
+
+</footer>
+
+
+<script>
+
+let users = [];
+
+
+/* FETCH DATA */
+
+function loadUsers() {
+
+    document.getElementById("users").innerHTML = `
+        <div class="message">
+            <div class="loader"></div>
+            Fetching data...
+        </div>
+    `;
+
+    fetch("https://randomuser.me/api/?results=20&nat=IN")
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        users = data.results;
+
+        createCities();
+
+        displayUsers();
+
+        document.getElementById("status").innerText =
+            "● Data loaded successfully";
+
+    })
+
+    .catch(() => {
+
+        document.getElementById("users").innerHTML = `
+            <div class="message">
+                ❌ Unable to fetch data.
+                <br><br>
+                Check your internet connection.
+            </div>
+        `;
+
+    });
+
+}
+
+
+/* CITY FILTER */
+
+function createCities() {
+
+    let cities = [];
+
+    users.forEach(user => {
+
+        let city = user.location.city;
+
+        if (!cities.includes(city)) {
+            cities.push(city);
+        }
+
+    });
+
+    cities.sort();
+
+    let select = document.getElementById("city");
+
+    select.innerHTML =
+        '<option value="all">All Cities</option>';
+
+    cities.forEach(city => {
+
+        select.innerHTML +=
+            `<option value="${city}">${city}</option>`;
+
+    });
+
+}
+
+
+/* DISPLAY DATA */
+
+function displayUsers() {
+
+    let search =
+        document.getElementById("search")
+        .value.toLowerCase();
+
+    let city =
+        document.getElementById("city").value;
+
+    let sort =
+        document.getElementById("sort").value;
+
+
+    let result = users.filter(user => {
+
+        let name =
+            user.name.first + " " + user.name.last;
+
+        return (
+
+            name.toLowerCase().includes(search) ||
+
+            user.email.toLowerCase().includes(search) ||
+
+            user.location.city.toLowerCase().includes(search)
+
+        ) && (
+
+            city === "all" ||
+            user.location.city === city
+
+        );
+
+    });
+
+
+    /* SORT */
+
+    result.sort((a, b) => {
+
+        let nameA =
+            a.name.first + " " + a.name.last;
+
+        let nameB =
+            b.name.first + " " + b.name.last;
+
+        if (sort === "za")
+            return nameB.localeCompare(nameA);
+
+        if (sort === "city")
+            return a.location.city.localeCompare(
+                b.location.city
+            );
+
+        return nameA.localeCompare(nameB);
+
+    });
+
+
+    let html = "";
+
+
+    if (result.length === 0) {
+
+        html = `
+            <div class="message">
+                No users found.
+            </div>
+        `;
+
+    }
+
+
+    result.forEach(user => {
+
+        let name =
+            user.name.first + " " + user.name.last;
+
+        html += `
+
+        <div class="card">
+
+            <div class="profile">
+
+                <img src="${user.picture.medium}">
+
+                <div>
+
+                    <div class="name">
+                        ${name}
+                    </div>
+
+                    <div class="city">
+                        📍 ${user.location.city}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="info">
+
+                <p>
+                    <b>Email:</b>
+                    ${user.email}
+                </p>
+
+                <p>
+                    <b>Phone:</b>
+                    ${user.phone}
+                </p>
+
+                <p>
+                    <b>State:</b>
+                    ${user.location.state}
+                </p>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+
+    document.getElementById("users").innerHTML = html;
+
+}
+
+</script>
+
+</body>
+
+</html>
