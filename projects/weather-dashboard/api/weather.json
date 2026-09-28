@@ -1,0 +1,92 @@
+{
+    "Shillong": {
+        "temperature": 22,
+        "feels_like": 21,
+        "condition": "Partly Cloudy",
+        "description": "Comfortable weather with scattered clouds.",
+        "humidity": 72,
+        "wind": 12,
+        "pressure": 1012,
+        "visibility": 8.2,
+        "uv": 5,
+        "icon": "⛅"
+    },
+
+    "Pondicherry": {
+        "temperature": 30,
+        "feels_like": 33,
+        "condition": "Sunny",
+        "description": "Warm and sunny conditions along the coast.",
+        "humidity": 68,
+        "wind": 15,
+        "pressure": 1008,
+        "visibility": 9.5,
+        "uv": 7,
+        "icon": "☀️"
+    },
+
+    "Mysore": {
+        "temperature": 25,
+        "feels_like": 25,
+        "condition": "Cloudy",
+        "description": "Mostly cloudy with comfortable temperatures.",
+        "humidity": 65,
+        "wind": 10,
+        "pressure": 1011,
+        "visibility": 8.8,
+        "uv": 4,
+        "icon": "☁️"
+    },
+
+    "Delhi": {
+        "temperature": 28,
+        "feels_like": 29,
+        "condition": "Clear",
+        "description": "Clear skies with warm weather conditions.",
+        "humidity": 55,
+        "wind": 9,
+        "pressure": 1009,
+        "visibility": 7.5,
+        "uv": 6,
+        "icon": "🌤️"
+    },
+
+    "Mumbai": {
+        "temperature": 29,
+        "feels_like": 32,
+        "condition": "Humid",
+        "description": "Warm and humid conditions near the coast.",
+        "humidity": 78,
+        "wind": 17,
+        "pressure": 1007,
+        "visibility": 7.8,
+        "uv": 6,
+        "icon": "🌥️"
+    },
+
+    "Bangalore": {
+        "temperature": 24,
+        "feels_like": 24,
+        "condition": "Light Cloud",
+        "description": "Pleasant weather with light cloud cover.",
+        "humidity": 61,
+        "wind": 11,
+        "pressure": 1013,
+        "visibility": 9.1,
+        "uv": 5,
+        "icon": "🌤️"
+    },
+
+    "Kolkata": {
+        "temperature": 27,
+        "feels_like": 30,
+        "condition": "Cloudy",
+        "description": "Cloudy conditions with moderate humidity.",
+        "humidity": 74,
+        "wind": 13,
+        "pressure": 1008,
+        "visibility": 7.9,
+        "uv": 5,
+        "icon": "☁️"
+    }
+}

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Atmos | Weather Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <!-- NAVBAR -->
+
+        <nav class="navbar">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    ☁
+                </div>
+
+                <div>
+                    <h2>Atmos</h2>
+                    <span>Weather Dashboard</span>
+                </div>
+
+            </div>
+
+            <div class="nav-right">
+
+                <span class="tech-badge">
+                    AJAX <b>•</b> JSON
+                </span>
+
+            </div>
+
+        </nav>
+
+
+        <!-- MAIN -->
+
+        <main>
+
+            <!-- HERO -->
+
+            <section class="hero">
+
+                <div class="hero-content">
+
+                    <span class="eyebrow">
+                        WEATHER OVERVIEW
+                    </span>
+
+                    <h1>
+                        Know your weather.
+                        <span>Plan your day.</span>
+                    </h1>
+
+                    <p>
+                        Get weather information instantly through
+                        asynchronous data fetching using AJAX and JSON.
+                    </p>
+
+                </div>
+
+
+                <!-- SEARCH -->
+
+               <div class="search-box">
+
+    <div class="search-input">
+
+        <span>⌕</span>
+
+        <select id="cityInput">
+
+            <option value="Shillong">Shillong</option>
+            <option value="Pondicherry">Pondicherry</option>
+            <option value="Mysore">Mysore</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Kolkata">Kolkata</option>
+
+        </select>
+
+    </div>
+
+    <button onclick="getWeather()">
+        Check Weather
+        <span>→</span>
+    </button>
+
+</div>
+
+            </section>
+
+
+            <!-- WEATHER MAIN CARD -->
+
+            <section class="weather-card">
+
+                <div class="weather-main">
+
+                    <div class="weather-location">
+
+                        <div class="status">
+                            <span></span>
+                            WEATHER DATA
+                        </div>
+
+                        <h2 id="location">
+                            Shillong
+                        </h2>
+
+                        <p id="date">
+                            Loading date...
+                        </p>
+
+                    </div>
+
+
+                    <div class="weather-condition">
+
+                        <div class="weather-icon" id="weatherIcon">
+                            ⛅
+                        </div>
+
+                        <div>
+
+                            <div class="temperature">
+
+                                <span id="temperature">
+                                    22
+                                </span>
+
+                                <sup>°C</sup>
+
+                            </div>
+
+                            <h3 id="condition">
+                                Partly Cloudy
+                            </h3>
+
+                            <p id="description">
+                                Comfortable weather with scattered clouds.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WEATHER STATS -->
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <div class="stat-icon">
+                            💧
+                        </div>
+
+                        <div>
+                            <span>Humidity</span>
+                            <strong id="humidity">72%</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div class="stat-icon">
+                            ≋
+                        </div>
+
+                        <div>
+                            <span>Wind Speed</span>
+                            <strong id="wind">12 km/h</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div class="stat-icon">
+                            ◉
+                        </div>
+
+                        <div>
+                            <span>Pressure</span>
+                            <strong id="pressure">1012 hPa</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div class="stat-icon">
+                            ◌
+                        </div>
+
+                        <div>
+                            <span>Visibility</span>
+                            <strong id="visibility">8.2 km</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SECOND ROW -->
+
+            <section class="bottom-grid">
+
+
+                <!-- FEELS LIKE -->
+
+                <div class="info-card">
+
+                    <div class="card-heading">
+
+                        <span>
+                            TEMPERATURE
+                        </span>
+
+                        <span class="small-icon">
+                            🌡
+                        </span>
+
+                    </div>
+
+                    <div class="feels-value">
+
+                        <strong id="feelsLike">
+                            21°
+                        </strong>
+
+                        <span>
+                            Feels like
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Based on humidity and current atmospheric
+                        conditions.
+                    </p>
+
+                </div>
+
+
+                <!-- UV -->
+
+                <div class="info-card">
+
+                    <div class="card-heading">
+
+                        <span>
+                            UV INDEX
+                        </span>
+
+                        <span class="small-icon">
+                            ☀
+                        </span>
+
+                    </div>
+
+                    <div class="uv-value">
+
+                        <strong id="uv">
+                            5
+                        </strong>
+
+                        <span id="uvText">
+                            Moderate
+                        </span>
+
+                    </div>
+
+                    <div class="uv-bar">
+
+                        <div id="uvProgress"></div>
+
+                    </div>
+
+                    <p>
+                        Consider protection during extended
+                        outdoor activities.
+                    </p>
+
+                </div>
+
+
+                <!-- API STATUS -->
+
+                <div class="info-card api-card">
+
+                    <div class="card-heading">
+
+                        <span>
+                            DATA REQUEST
+                        </span>
+
+                        <span class="live">
+                            LIVE
+                        </span>
+
+                    </div>
+
+                    <div class="api-status">
+
+                        <div class="pulse"></div>
+
+                        <strong>
+                            AJAX request successful
+                        </strong>
+
+                    </div>
+
+                    <div class="api-flow">
+
+                        <span>FETCH</span>
+                        <b>→</b>
+                        <span>JSON</span>
+                        <b>→</b>
+                        <span>UI</span>
+
+                    </div>
+
+                    <p>
+                        Weather data is loaded asynchronously
+                        without refreshing the page.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- LOADING -->
+
+            <div id="loading" class="loading">
+
+                <div class="loader"></div>
+
+                Fetching weather data...
+
+            </div>
+
+
+            <!-- ERROR -->
+
+            <div id="error" class="error">
+
+                Unable to load weather data.
+
+            </div>
+
+
+        </main>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <span>Atmos</span>
+
+            <div>
+                AJAX · JSON · JavaScript
+            </div>
+
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
