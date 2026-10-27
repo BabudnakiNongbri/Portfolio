@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Explorer | Discover Books</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<header class="navbar">
+    <a href="#" class="logo">book<span>explorer.</span></a>
+
+    <nav>
+        <a href="#" class="nav-link active" data-category="All">New</a>
+        <a href="#" class="nav-link" data-category="Fiction">Popular</a>
+        <a href="#" class="nav-link" data-category="Art & Design">Art & Design</a>
+        <a href="#" class="nav-link" data-category="Architecture">Architecture</a>
+        <a href="#" class="nav-link" data-category="Travel">Travel</a>
+    </nav>
+
+    <button id="favoritesBtn" class="icon-btn" title="View favorites">
+        ♡ <span id="favCount">0</span>
+    </button>
+</header>
+
+<section class="hero">
+    <div>
+        <p class="eyebrow">YOUR NEXT GREAT READ</p>
+        <h1>Find your next<br>favorite book.</h1>
+        <p class="subtitle">Explore books, discover authors and find inspiration.</p>
+    </div>
+
+    <form id="searchForm" class="search-box">
+        <span>⌕</span>
+        <input id="searchInput" type="search"
+               placeholder="Search books, authors, subjects...">
+        <button type="submit">Search</button>
+    </form>
+</section>
+
+<main class="layout">
+    <aside class="sidebar">
+        <div class="side-heading">
+            <h3>Explore</h3>
+            <button id="clearFilters">Clear</button>
+        </div>
+
+        <p class="filter-title">CATEGORIES</p>
+
+        <div class="category-list">
+            <button class="category active" data-category="All">
+                All Books <span>↗</span>
+            </button>
+            <button class="category" data-category="Art & Design">
+                Art & Design
+            </button>
+            <button class="category" data-category="Architecture">
+                Architecture
+            </button>
+            <button class="category" data-category="Travel">
+                Travel
+            </button>
+            <button class="category" data-category="Children">
+                Children's Books
+            </button>
+            <button class="category" data-category="Fiction">
+                Fiction
+            </button>
+            <button class="category" data-category="Technology">
+                Technology
+            </button>
+            <button class="category" data-category="Science">
+                Science
+            </button>
+        </div>
+
+        <div class="side-divider"></div>
+
+        <p class="filter-title">PUBLICATION YEAR</p>
+        <label class="year-label" for="yearRange">
+            From <span id="yearValue">1900</span>
+        </label>
+        <input type="range" id="yearRange"
+               min="1900" max="2026" value="1900">
+        <p class="small-note">Filter books by publication year.</p>
+
+        <div class="side-divider"></div>
+
+        <label class="check-label">
+            <input type="checkbox" id="favoritesOnly">
+            Show favorites only
+        </label>
+    </aside>
+
+    <section class="catalog">
+        <div class="catalog-top">
+            <div>
+                <p class="breadcrumb">Home / Discover</p>
+                <h2 id="sectionTitle">Discover Books</h2>
+                <p id="resultCount">Explore our collection.</p>
+            </div>
+
+            <div class="sort-control">
+                <label for="sortSelect">Sort by</label>
+                <select id="sortSelect">
+                    <option value="relevance">Relevance</option>
+                    <option value="title">Title A–Z</option>
+                    <option value="year">Newest first</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="active-filters" id="activeFilters"></div>
+
+        <div id="message" role="status">Loading books...</div>
+        <div id="bookGrid" class="book-grid"></div>
+
+        <button id="loadMore" class="load-more" hidden>
+            Load More Books
+        </button>
+    </section>
+</main>
+
+<footer>
+    <p>bookexplorer. <span>Discover something wonderful.</span></p>
+    <p>Powered by Open Library</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
