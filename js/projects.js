@@ -1,5 +1,5 @@
 // 1) After deploying the PHP projects on Render, paste your Render URL here (no trailing slash).
-const PHP_HOST = "https://YOUR-SERVICE.onrender.com";
+const PHP_HOST = "https://portfolio-php-hntp.onrender.com";
 
 const PHP_NOTE = "Backend runs on a free server - the first load can take up to a minute to wake up.";
 
