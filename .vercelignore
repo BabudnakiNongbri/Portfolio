@@ -1,0 +1,11 @@
+# Vercel only hosts the static site. PHP runs on Render (see Dockerfile).
+# Keeping PHP out of Vercel also stops its source code being downloadable.
+projects/employee-management
+projects/contact-management
+projects/nexora-company
+projects/department-portal
+docker
+database
+Dockerfile
+render.yaml
+DEPLOY.md

@@ -9,8 +9,8 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 
 $error = "";
 
-$admin_email = "admin@contactly.com";
-$admin_password = "admin123";
+$admin_email = getenv("CONTACT_ADMIN_EMAIL") ?: "admin@contactly.com";
+$admin_password = getenv("CONTACT_ADMIN_PASSWORD") ?: "admin123";
 
 if (isset($_POST['login'])) {
 

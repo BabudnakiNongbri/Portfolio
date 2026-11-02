@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: portfolio-php
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health.php
+    envVars:
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: NEXORA_ADMIN_EMAIL
+        value: admin@mca42.com
+      - key: NEXORA_ADMIN_PASSWORD
+        sync: false
+      - key: CONTACT_ADMIN_EMAIL
+        value: admin@contactly.com
+      - key: CONTACT_ADMIN_PASSWORD
+        sync: false

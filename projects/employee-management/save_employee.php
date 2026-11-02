@@ -15,12 +15,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $salary = $_POST["salary"];
     $address = $_POST["address"];
 
-    $sql = "INSERT INTO employees 
+    $sql = "INSERT INTO employees
             (employee_id, name, gender, dob, email, phone, department, designation, salary, address)
-            VALUES 
-            ('$employee_id', '$name', '$gender', '$dob', '$email', '$phone', '$department', '$designation', '$salary', '$address')";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-    if (mysqli_query($conn, $sql)) {
+    $stmt = mysqli_prepare($conn, $sql);
+
+    $salary = (float) $salary;
+
+    mysqli_stmt_bind_param(
+        $stmt,
+        "ssssssssds",
+        $employee_id, $name, $gender, $dob, $email,
+        $phone, $department, $designation, $salary, $address
+    );
+
+    if (mysqli_stmt_execute($stmt)) {
 
         echo "<h2>Employee details saved successfully!</h2>";
         echo "<a href='index.php'>Add Another Employee</a>";

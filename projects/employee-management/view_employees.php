@@ -65,25 +65,25 @@ $result = mysqli_query($conn, $sql);
 
                         <td><?php echo $row['id']; ?></td>
 
-                        <td><?php echo $row['employee_id']; ?></td>
+                        <td><?php echo htmlspecialchars($row['employee_id']); ?></td>
 
-                        <td><?php echo $row['name']; ?></td>
+                        <td><?php echo htmlspecialchars($row['name']); ?></td>
 
-                        <td><?php echo $row['gender']; ?></td>
+                        <td><?php echo htmlspecialchars($row['gender']); ?></td>
 
-                        <td><?php echo $row['dob']; ?></td>
+                        <td><?php echo htmlspecialchars($row['dob']); ?></td>
 
-                        <td><?php echo $row['email']; ?></td>
+                        <td><?php echo htmlspecialchars($row['email']); ?></td>
 
-                        <td><?php echo $row['phone']; ?></td>
+                        <td><?php echo htmlspecialchars($row['phone']); ?></td>
 
-                        <td><?php echo $row['department']; ?></td>
+                        <td><?php echo htmlspecialchars($row['department']); ?></td>
 
-                        <td><?php echo $row['designation']; ?></td>
+                        <td><?php echo htmlspecialchars($row['designation']); ?></td>
 
                         <td>₹<?php echo number_format($row['salary'], 2); ?></td>
 
-                        <td><?php echo $row['address']; ?></td>
+                        <td><?php echo htmlspecialchars($row['address']); ?></td>
 
                         <td>
                           <a href="edit_employee.php?id=<?php echo $row['id']; ?>" class="edit-button">
